@@ -1,7 +1,7 @@
 # install-latest
 
 [![npm version](https://badge.fury.io/js/install-latest.svg)](https://www.npmjs.com/package/install-latest)
-[![GitHub license](https://img.shields.io/github/license/nathanhleung/install-latest.svg)](https://github.com/rfoel/install-latest/blob/master/LICENSE) ![GitHub stars](https://img.shields.io/github/stars/rfoel/install-latest?style=social)
+[![GitHub license](https://img.shields.io/github/license/rfoel/install-latest.svg)](https://github.com/rfoel/install-latest/blob/master/LICENSE) ![GitHub stars](https://img.shields.io/github/stars/rfoel/install-latest?style=social)
 
 Does what it says, install the latest dependencies and devDependencies from your package.json.
 
