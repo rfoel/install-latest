@@ -10,10 +10,29 @@ I know one's not supposed to just dump the latest packages on a project but I fi
 ## Quick start
 
 ```
-    npx install-latest
+npx install-latest
 ```
 
 Done.
+
+### Install only development dependencies
+
+```
+npx install-latest -D
+```
+
+## Usage
+
+```
+Usage: index [options]
+
+Does what it says, install latest dependencies and devDependencies from your package.json
+
+Options:
+  -V, --version  output the version number
+  -D, --dev      update only devDependencies
+  -h, --help     display help for command
+```
 
 ## Contributing
 
