@@ -1,6 +1,6 @@
 {
   "name": "install-latest",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Does what it says, install latest dependencies and devDependencies from your package.json",
   "main": "index.js",
   "repository": "git@github.com:rfoel/install-latest.git",
@@ -8,5 +8,8 @@
   "license": "MIT",
   "bin": {
     "install-latest": "./index.js"
+  },
+  "dependencies": {
+    "commander": "^6.1.0"
   }
 }
