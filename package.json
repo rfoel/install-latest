@@ -1,6 +1,6 @@
 {
   "name": "install-latest",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Does what it says, install latest dependencies and devDependencies from your package.json",
   "main": "index.js",
   "repository": "git@github.com:rfoel/install-latest.git",
@@ -11,5 +11,8 @@
   },
   "dependencies": {
     "commander": "^6.1.0"
+  },
+  "devDependencies": {
+    "@semantic-release/git": "^9.0.0"
   }
 }
