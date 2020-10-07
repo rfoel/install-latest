@@ -12,12 +12,14 @@ program
   .version(version)
   .description(description)
   .option('-D, --dev', 'update only devDependencies')
+  .option('-N, --non-dev', 'update only non devDependencies')
 
 program.parse(process.argv)
 
-const args = []
 
-if (program.dev) args.push('-D')
+if (program.dev) package.dependencies = null
+if (program.nonDev) package.devDependencies = null
+
 
 const packageManager = fs.existsSync(path.resolve(process.cwd(), 'yarn.lock'))
   ? 'yarn'
@@ -32,7 +34,7 @@ const dependencies = [
 
 spawn(
   packageManager,
-  [installCommand[packageManager], ...dependencies, ...args],
+  [installCommand[packageManager], ...dependencies],
   {
     cwd: process.cwd(),
     stdio: 'inherit',
