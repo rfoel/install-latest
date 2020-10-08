@@ -11,13 +11,13 @@ const package = require(`${process.cwd()}/package.json`)
 program
   .version(version)
   .description(description)
-  .option('-D, --dev', 'update only devDependencies')
+  .option('-P, --prod', 'update only production dependencies')
+  .option('-D, --dev', 'update only development dependencies')
 
 program.parse(process.argv)
 
-const args = []
-
-if (program.dev) args.push('-D')
+if (program.prod) package.devDependencies = null
+if (program.dev) package.dependencies = null
 
 const packageManager = fs.existsSync(path.resolve(process.cwd(), 'yarn.lock'))
   ? 'yarn'
@@ -30,11 +30,7 @@ const dependencies = [
   ...Object.keys(package.devDependencies || {}),
 ].map(dependency => `${dependency}@latest`)
 
-spawn(
-  packageManager,
-  [installCommand[packageManager], ...dependencies, ...args],
-  {
-    cwd: process.cwd(),
-    stdio: 'inherit',
-  },
-)
+spawn(packageManager, [installCommand[packageManager], ...dependencies], {
+  cwd: process.cwd(),
+  stdio: 'inherit',
+})

@@ -5,7 +5,7 @@
 
 Does what it says, install the latest dependencies and devDependencies from your package.json.
 
-I know one's not supposed to just dump the latest packages on a project but I find it usefull sometimes when I want to get a clean install and work with the latest updates.
+I know one's not supposed to just dump the latest packages on a project but I find it useful sometimes when I want to get a clean install and work with the latest updates.
 
 ## Quick start
 
@@ -14,6 +14,12 @@ npx install-latest
 ```
 
 Done.
+
+### Install only production dependencies
+
+```
+npx install-latest -P
+```
 
 ### Install only development dependencies
 
@@ -30,7 +36,8 @@ Does what it says, install latest dependencies and devDependencies from your pac
 
 Options:
   -V, --version  output the version number
-  -D, --dev      update only devDependencies
+  -P, --prod     update only production dependencies
+  -D, --dev      update only development dependencies
   -h, --help     display help for command
 ```
 
