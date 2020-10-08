@@ -11,14 +11,14 @@ const package = require(`${process.cwd()}/package.json`)
 program
   .version(version)
   .description(description)
-  .option('-D, --dev', 'update only devDependencies')
-  .option('-N, --non-dev', 'update only non devDependencies')
+  .option('-P, --prod', 'update only production dependencies')
+  .option('-D, --dev', 'update only development dependencies')
 
 program.parse(process.argv)
 
 
 if (program.dev) package.dependencies = null
-if (program.nonDev) package.devDependencies = null
+if (program.prod) package.devDependencies = null
 
 
 const packageManager = fs.existsSync(path.resolve(process.cwd(), 'yarn.lock'))
