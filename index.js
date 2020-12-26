@@ -23,6 +23,10 @@ const packageManager = fs.existsSync(path.resolve(process.cwd(), 'yarn.lock'))
   ? 'yarn'
   : 'npm'
 
+const executableName = /^win/.test(process.platform)
+  ? packageManager + '.cmd'
+  : packageManager;
+
 const installCommand = { npm: 'install', yarn: 'add' }
 
 const dependencies = [
@@ -30,7 +34,7 @@ const dependencies = [
   ...Object.keys(package.devDependencies || {}),
 ].map(dependency => `${dependency}@latest`)
 
-spawn(packageManager, [installCommand[packageManager], ...dependencies], {
+spawn(executableName, [installCommand[packageManager], ...dependencies], {
   cwd: process.cwd(),
   stdio: 'inherit',
 })
