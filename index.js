@@ -8,16 +8,36 @@ const { description, version } = require('./package.json')
 
 const package = require(`${process.cwd()}/package.json`)
 
+const getDependencies = type =>
+  package[type] ? Object.keys(package[type]) : []
+
 program
   .version(version)
   .description(description)
-  .option('-P, --prod', 'update only production dependencies')
-  .option('-D, --dev', 'update only development dependencies')
+  .option('--prod', 'update only production dependencies')
+  .option('--dev', 'update only development dependencies')
+  .option('--optional', 'update only optional dependencies')
+  .option('--peer', 'update only peer dependencies')
 
 program.parse(process.argv)
+const options = program.opts()
 
-if (program.prod) package.devDependencies = null
-if (program.dev) package.dependencies = null
+const dependencies = []
+
+if ([options.prod, options.dev, options.optional, options.peer].some(Boolean)) {
+  if (options.prod) dependencies.push(...getDependencies('dependencies'))
+  if (options.dev) dependencies.push(...getDependencies('devDependencies'))
+  if (options.optional)
+    dependencies.push(...getDependencies('optionalDependencies'))
+  if (options.peer) dependencies.push(...getDependencies('peerDependencies'))
+} else {
+  dependencies.push(
+    ...getDependencies('dependencies'),
+    ...getDependencies('devDependencies'),
+    ...getDependencies('optionalDependencies'),
+    ...getDependencies('peerDependencies'),
+  )
+}
 
 const packageManager = fs.existsSync(path.resolve(process.cwd(), 'yarn.lock'))
   ? 'yarn'
@@ -25,16 +45,18 @@ const packageManager = fs.existsSync(path.resolve(process.cwd(), 'yarn.lock'))
 
 const executableName = /^win/.test(process.platform)
   ? packageManager + '.cmd'
-  : packageManager;
+  : packageManager
 
 const installCommand = { npm: 'install', yarn: 'add' }
 
-const dependencies = [
-  ...Object.keys(package.dependencies || {}),
-  ...Object.keys(package.devDependencies || {}),
-].map(dependency => `${dependency}@latest`)
-
-spawn(executableName, [installCommand[packageManager], ...dependencies], {
-  cwd: process.cwd(),
-  stdio: 'inherit',
-})
+spawn(
+  executableName,
+  [
+    installCommand[packageManager],
+    ...dependencies.map(dependency => `${dependency}@latest`),
+  ],
+  {
+    cwd: process.cwd(),
+    stdio: 'inherit',
+  },
+)
