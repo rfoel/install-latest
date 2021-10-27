@@ -1,19 +1,19 @@
-name: Bump version
+name: Push to main
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
-  bump-version:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v2
         with:
-          node-version: 12
-      - run: npm ci
+          node-version: '14.x'
+      - run: npm install
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
