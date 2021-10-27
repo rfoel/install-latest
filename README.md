@@ -47,15 +47,15 @@ It is also possible to pass more than one flag at once like so:
 npx install-latest --prod --dev
 ```
 
-### Update only selected dependencies
+### Interactively select the dependency types you want to
 
 ```
 npx install-latest --interactive
+```
 
 ## Usage
 
 ```
-
 Usage: index [options]
 
 Does what it says, install latest dependencies from your package.json
@@ -66,7 +66,7 @@ Options:
 --dev update only development dependencies
 --optional update only optional dependencies
 --peer update only peer dependencies
---interactive update only selected dependencies
+-i, --interactive interactively select the dependency types you want to
 -h, --help display help for command
 
 ```
@@ -78,4 +78,7 @@ Issues and pull requests are welcome.
 ## License
 
 [MIT](https://github.com/rfoell/install-latest/blob/master/LICENSE)
+
+```
+
 ```

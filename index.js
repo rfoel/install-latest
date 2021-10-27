@@ -19,7 +19,7 @@ program
   .option('--dev', 'update only development dependencies')
   .option('--optional', 'update only optional dependencies')
   .option('--peer', 'update only peer dependencies')
-  .option('--interactive', 'update only selected dependencies')
+  .option('-i, --interactive', 'interactively select the dependency types you want to')
 
 program.parse(process.argv)
 const options = program.opts()
@@ -47,7 +47,7 @@ if ([options.prod, options.dev, options.optional, options.peer].some(Boolean)) {
     .prompt({
       type: 'checkbox',
       name: 'userPackages',
-      message: 'Pacotes a serem atualizados:',
+      message: 'Select the packages to be updated:',
       choices: [...dependencies]
     })
     .then((answers) => {
