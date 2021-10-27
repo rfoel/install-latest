@@ -2,6 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
+const inquirer = require('inquirer');
 const { spawn } = require('child_process')
 const { program } = require('commander')
 const { description, version } = require('./package.json')
@@ -18,6 +19,7 @@ program
   .option('--dev', 'update only development dependencies')
   .option('--optional', 'update only optional dependencies')
   .option('--peer', 'update only peer dependencies')
+  .option('--interactive', 'update only selected dependencies')
 
 program.parse(process.argv)
 const options = program.opts()
@@ -39,24 +41,40 @@ if ([options.prod, options.dev, options.optional, options.peer].some(Boolean)) {
   )
 }
 
-const packageManager = fs.existsSync(path.resolve(process.cwd(), 'yarn.lock'))
+(async () => {
+  if (options.interactive) {
+    await inquirer
+    .prompt({
+      type: 'checkbox',
+      name: 'userPackages',
+      message: 'Pacotes a serem atualizados:',
+      choices: [...dependencies]
+    })
+    .then((answers) => {
+      dependencies.length = 0
+      dependencies.push(...answers.userPackages)
+    })
+  }
+
+  const packageManager = fs.existsSync(path.resolve(process.cwd(), 'yarn.lock'))
   ? 'yarn'
   : 'npm'
 
-const executableName = /^win/.test(process.platform)
-  ? packageManager + '.cmd'
-  : packageManager
+  const executableName = /^win/.test(process.platform)
+    ? packageManager + '.cmd'
+    : packageManager
 
-const installCommand = { npm: 'install', yarn: 'add' }
-
-spawn(
-  executableName,
-  [
-    installCommand[packageManager],
-    ...dependencies.map(dependency => `${dependency}@latest`),
-  ],
-  {
-    cwd: process.cwd(),
-    stdio: 'inherit',
-  },
-)
+  const installCommand = { npm: 'install', yarn: 'add' }
+  
+  spawn(
+    executableName,
+    [
+      installCommand[packageManager],
+      ...dependencies.map(dependency => `${dependency}@latest`),
+    ],
+    {
+      cwd: process.cwd(),
+      stdio: 'inherit',
+    },
+  )
+})()
