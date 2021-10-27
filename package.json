@@ -1,6 +1,6 @@
 {
   "name": "install-latest",
-  "version": "2.0.0",
+  "version": "1.4.0",
   "description": "Does what it says, install latest dependencies from your package.json",
   "main": "index.js",
   "repository": "git@github.com:rfoel/install-latest.git",
