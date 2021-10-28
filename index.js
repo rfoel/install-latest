@@ -19,7 +19,7 @@ program
   .option('--dev', 'update only development dependencies')
   .option('--optional', 'update only optional dependencies')
   .option('--peer', 'update only peer dependencies')
-  .option('-i, --interactive', 'interactively select the dependency types you want to')
+  .option('-i, --interactive', 'interactively select the dependency types you want to update')
 
 program.parse(process.argv)
 const options = program.opts()
