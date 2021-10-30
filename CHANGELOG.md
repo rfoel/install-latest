@@ -1,3 +1,30 @@
+# [3.0.0](https://github.com/rfoel/install-latest/compare/v2.0.0...v3.0.0) (2021-10-30)
+
+
+### Features
+
+* Add an interactive mode ([#23](https://github.com/rfoel/install-latest/issues/23)) ([49c9b9e](https://github.com/rfoel/install-latest/commit/49c9b9eef4cc5b38181f420fc6c012ab9915ec5a))
+
+
+### BREAKING CHANGES
+
+* remove short flags because they are confusing and
+add optional and peer dependencies flags.
+
+* feat: add an interactive mode to select dependencies
+
+* feat: add an interactive mode to select dependencies
+
+* chore: update .lock
+
+* chore: update readme
+
+* feat: add a short flag option for interactive mode
+
+* feat: adjusting sentence inconsistencies
+
+Co-authored-by: Rafael Franco <rafaelfr@outlook.com>
+
 # [2.0.0](https://github.com/rfoel/install-latest/compare/v1.4.0...v2.0.0) (2021-10-19)
 
 
