@@ -10,7 +10,7 @@
     "install-latest": "./index.js"
   },
   "dependencies": {
-    "commander": "^8.3.0",
+    "commander": "^9.1.0",
     "inquirer": "^8.2.0"
   },
   "devDependencies": {
