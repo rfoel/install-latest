@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "commander": "^8.3.0",
-    "inquirer": "^8.2.0"
+    "inquirer": "^9.1.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.0",
