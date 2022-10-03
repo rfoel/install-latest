@@ -50,15 +50,17 @@ if ([options.prod, options.dev, options.optional, options.peer].some(Boolean)) {
 
 ;(async () => {
   if (options.interactive) {
-    await prompt({
-      type: 'checkbox',
-      name: 'userPackages',
-      message: 'Select the packages to be updated:',
-      choices: [...dependencies],
-    }).then(answers => {
-      dependencies.length = 0
-      dependencies.push(...answers.userPackages)
-    })
+    await inquirer
+      .prompt({
+        type: 'checkbox',
+        name: 'userPackages',
+        message: 'Select the packages to be updated:',
+        choices: [...dependencies],
+      })
+      .then(answers => {
+        dependencies.length = 0
+        dependencies.push(...answers.userPackages)
+      })
   }
 
   const packageManager = existsSync(resolve(process.cwd(), 'yarn.lock'))
