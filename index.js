@@ -30,7 +30,7 @@ const options = program.opts()
   const getDependencies = type =>
     packageFile[type]
       ? Object.entries(packageFile[type])
-          .filter(([, value]) => !isNaN(value[0]))
+          .filter(([, value]) => isNaN(value[0]))
           .map(([key]) => key)
       : []
 
