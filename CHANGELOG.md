@@ -1,3 +1,10 @@
+## [3.1.4](https://github.com/rfoel/install-latest/compare/v3.1.3...v3.1.4) (2022-10-03)
+
+
+### Bug Fixes
+
+* remove log ([27652f9](https://github.com/rfoel/install-latest/commit/27652f997ef9a99f271e01e86c1e44ca6c7fa9af))
+
 ## [3.1.3](https://github.com/rfoel/install-latest/compare/v3.1.2...v3.1.3) (2022-10-03)
 
 
