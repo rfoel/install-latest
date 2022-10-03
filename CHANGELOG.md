@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/rfoel/install-latest/compare/v3.0.0...v3.1.0) (2022-10-03)
+
+
+### Features
+
+* only update deps with sign before version ([3e00723](https://github.com/rfoel/install-latest/commit/3e0072370166da0a1fe5ff0c600162c2e25aad1a))
+
 # [3.0.0](https://github.com/rfoel/install-latest/compare/v2.0.0...v3.0.0) (2021-10-30)
 
 
