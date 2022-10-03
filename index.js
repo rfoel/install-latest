@@ -53,8 +53,6 @@ const options = program.opts()
     )
   }
 
-  console.log(dependencies)
-
   if (options.interactive) {
     await inquirer
       .prompt({
