@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/rfoel/install-latest/compare/v3.1.0...v3.1.1) (2022-10-03)
+
+
+### Bug Fixes
+
+* build package ([38a44e1](https://github.com/rfoel/install-latest/commit/38a44e147728d546e5c3e88cd7d1c0c0b41be479))
+
 # [3.1.0](https://github.com/rfoel/install-latest/compare/v3.0.0...v3.1.0) (2022-10-03)
 
 
