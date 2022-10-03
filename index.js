@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
-const fs = require('fs')
-const path = require('path')
-const inquirer = require('inquirer')
-const { spawn } = require('child_process')
-const { program } = require('commander')
-const { description, version } = require('./package.json')
+import { existsSync } from 'fs'
+import { resolve } from 'path'
+import { prompt } from 'inquirer'
+import { spawn } from 'child_process'
+import { program } from 'commander'
+import { description, version } from './package.json'
 
-const package = require(`${process.cwd()}/package.json`)
+const packageFile = require(`${process.cwd()}/package.json`)
 
 const getDependencies = type =>
-  package[type]
-    ? Object.entries(package[type])
+  packageFile[type]
+    ? Object.entries(packageFile[type])
         .filter(([value]) => !isNaN(value[0]))
         .map(([key]) => key)
     : []
@@ -50,20 +50,18 @@ if ([options.prod, options.dev, options.optional, options.peer].some(Boolean)) {
 
 ;(async () => {
   if (options.interactive) {
-    await inquirer
-      .prompt({
-        type: 'checkbox',
-        name: 'userPackages',
-        message: 'Select the packages to be updated:',
-        choices: [...dependencies],
-      })
-      .then(answers => {
-        dependencies.length = 0
-        dependencies.push(...answers.userPackages)
-      })
+    await prompt({
+      type: 'checkbox',
+      name: 'userPackages',
+      message: 'Select the packages to be updated:',
+      choices: [...dependencies],
+    }).then(answers => {
+      dependencies.length = 0
+      dependencies.push(...answers.userPackages)
+    })
   }
 
-  const packageManager = fs.existsSync(path.resolve(process.cwd(), 'yarn.lock'))
+  const packageManager = existsSync(resolve(process.cwd(), 'yarn.lock'))
     ? 'yarn'
     : 'npm'
 
