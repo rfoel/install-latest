@@ -2,7 +2,7 @@
 
 import { existsSync } from 'fs'
 import { resolve } from 'path'
-import { prompt } from 'inquirer'
+import inquirer from 'inquirer'
 import { spawn } from 'child_process'
 import { program } from 'commander'
 import { description, version } from './package.json'
