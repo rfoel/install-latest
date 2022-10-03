@@ -1,3 +1,10 @@
+## [3.1.5](https://github.com/rfoel/install-latest/compare/v3.1.4...v3.1.5) (2022-10-03)
+
+
+### Bug Fixes
+
+* fix conditional filter ([1c7c787](https://github.com/rfoel/install-latest/commit/1c7c787c95108bee9682ec5c0e63c0ac7ddbf09a))
+
 ## [3.1.4](https://github.com/rfoel/install-latest/compare/v3.1.3...v3.1.4) (2022-10-03)
 
 
