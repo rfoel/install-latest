@@ -1,3 +1,11 @@
+## [3.1.2](https://github.com/rfoel/install-latest/compare/v3.1.1...v3.1.2) (2022-10-03)
+
+
+### Bug Fixes
+
+* fix inquirer prompt ([7d444ca](https://github.com/rfoel/install-latest/commit/7d444ca0d0b262e1b2657cf225ddcb0aa38baa95))
+* fix inquirer prompt ([775fd6f](https://github.com/rfoel/install-latest/commit/775fd6f64cd8a84fabccb35ac1a88945e8a92d01))
+
 ## [3.1.1](https://github.com/rfoel/install-latest/compare/v3.1.0...v3.1.1) (2022-10-03)
 
 
