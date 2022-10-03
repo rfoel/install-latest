@@ -1,3 +1,11 @@
+## [3.1.3](https://github.com/rfoel/install-latest/compare/v3.1.2...v3.1.3) (2022-10-03)
+
+
+### Bug Fixes
+
+* fix inquirer import ([299efb2](https://github.com/rfoel/install-latest/commit/299efb276bd833a31cac22d5aea7c5a113ab59b0))
+* refactor structure ([bcf7841](https://github.com/rfoel/install-latest/commit/bcf784108364481a4dd0049f8230e56544b9bdde))
+
 ## [3.1.2](https://github.com/rfoel/install-latest/compare/v3.1.1...v3.1.2) (2022-10-03)
 
 
