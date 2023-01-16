@@ -13,7 +13,7 @@
     "build": "esbuild index.js --bundle --platform=node --outfile=dist/index.js"
   },
   "dependencies": {
-    "commander": "^9.4.1",
+    "commander": "^10.0.0",
     "inquirer": "^9.1.2"
   },
   "devDependencies": {
