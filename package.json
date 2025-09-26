@@ -10,20 +10,21 @@
     "install-latest": "./dist/index.js"
   },
   "scripts": {
-    "build": "esbuild index.js --bundle --platform=node --outfile=dist/index.js"
+    "build": "esbuild index.js --bundle --platform=node --outfile=dist/index.js --external:prompts"
   },
   "dependencies": {
-    "commander": "^9.4.1",
-    "inquirer": "^9.1.2"
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^13.0.1",
     "@semantic-release/git": "^10.0.1",
-    "@semantic-release/github": "^8.0.6",
-    "@semantic-release/npm": "^9.0.1",
-    "@semantic-release/release-notes-generator": "^10.0.3",
-    "esbuild": "^0.15.10",
-    "semantic-release": "^19.0.5"
+    "@semantic-release/github": "^11.0.6",
+    "@semantic-release/npm": "^12.0.2",
+    "@semantic-release/release-notes-generator": "^14.1.0",
+    "esbuild": "^0.25.10",
+    "eslint": "^9.36.0",
+    "prettier": "^3.6.2",
+    "semantic-release": "^24.2.9"
   }
 }
