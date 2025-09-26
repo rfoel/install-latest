@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/rfoel/install-latest/compare/v3.1.5...v4.0.0) (2025-09-26)
+
+
+### chore
+
+* make package lighter ([2e75305](https://github.com/rfoel/install-latest/commit/2e753059ab457f3798ea707916c65f57de8d27ea))
+
+
+### BREAKING CHANGES
+
+* some packages were removed
+
 ## [3.1.5](https://github.com/rfoel/install-latest/compare/v3.1.4...v3.1.5) (2022-10-03)
 
 
